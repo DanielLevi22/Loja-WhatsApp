@@ -12,6 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { LaptopIcon } from "lucide-react"
 
 export function ToggleTheme() {
   const { setTheme } = useTheme()
@@ -27,13 +28,13 @@ export function ToggleTheme() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+         <SunIcon className="mr-2" /> Light
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+         <MoonIcon className="mr-2" />  Dark
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          <LaptopIcon className="mr-2"/>   Sistema
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
