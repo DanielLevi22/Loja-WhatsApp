@@ -4,7 +4,7 @@ import { Dialog, DialogHeader ,DialogTitle,DialogContent} from "../ui/dialog";
 import { Progress } from "../ui/progress";
 import { StepUser } from "./step-user";
 import { StepFinish } from "./step-finish";
-import { StepAddress } from "./stpe-address";
+import { StepAddress } from "./step-address";
 
 type CheckoutDialogProps = {
   open: boolean
