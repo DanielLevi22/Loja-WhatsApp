@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Button } from "../ui/button"
 import { useToast } from "../ui/use-toast"
 import { ToastAction } from "../ui/toast"
+import { useCartStore } from "@/stores/cart-store"
 
 type ProductItemProps = {
   item: Product
@@ -11,7 +12,10 @@ type ProductItemProps = {
 
 export function ProductItem({ item }: ProductItemProps) {
   const {toast} = useToast()
+  const { upsertCartItem } = useCartStore(state => state)
+
   function handleAddButton() {
+    upsertCartItem(item,1)
     toast({
       title: 'Adicionado ao carrinho!',
       description: item.name,
