@@ -12,7 +12,7 @@ export function TabSkeleton() {
             <Skeleton className="w-full h-32 rounded-xl"/>
             <Skeleton className="mt-2 w-full h-7 rounded-xl"/>
             <Skeleton className="mt-2 h-5 rounded-xl"/>
-            <Skeleton className="mt-2 w-full  h95 rounded-xl"/>
+            <Skeleton className="mt-2 w-full  h-9 rounded-xl"/>
           </div>
         ))}
       </div>

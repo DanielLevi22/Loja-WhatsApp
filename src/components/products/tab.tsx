@@ -1,8 +1,9 @@
+import { getAllProducts } from "@/services/product";
 import { Tabs, TabsList,TabsContent ,TabsTrigger} from "../ui/tabs";
 
 
-export function ProductsTab() {
-  
+export async function ProductsTab() {
+  const product = await getAllProducts();
   return (
     <Tabs defaultValue="tab-1">
       <TabsList className="flex">
