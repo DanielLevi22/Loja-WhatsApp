@@ -1,6 +1,8 @@
 import { getAllProducts } from "@/services/product";
 import { Tabs, TabsList,TabsContent ,TabsTrigger} from "../ui/tabs";
 import { Product } from "@/types/product";
+import { ProductEmpty } from "./empty";
+import { ProductItem } from "./item";
 
 type Tab = {
   title: string
@@ -15,22 +17,22 @@ export async function ProductsTab() {
     {
       title: 'Sushi',
       value: 'sushi',
-      products: []
+      products: product.filter(item => item.category === 'sushi')
     },
     {
       title: 'Temaki',
       value: 'temaki',
-      products: []
+      products: product.filter(item => item.category === 'temaki')
     },
     {
       title: 'Combinados',
-      value: 'combinados',
-      products: []
+      value: 'pack',
+      products: product.filter(item => item.category === 'pack')
     },
     {
       title: 'Bebidas',
       value: 'beverage',
-      products: []
+      products: product.filter(item => item.category === 'beverage')
     },
   ]
   return (
@@ -45,7 +47,17 @@ export async function ProductsTab() {
       </TabsList>
       {tabs.map(item => (
         <TabsContent key={item.title} value={item.value} className="mt-6">
-            contentudo 2
+            {item.products.length > 0 &&
+              <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-3">
+                {item.products.map(product =>(
+                  <ProductItem key={product.id} item={product}/>
+                ))}
+              </div>
+            }
+
+            {item.products.length === 0 &&
+              <ProductEmpty />
+            }
         </TabsContent>
 
       ))}
