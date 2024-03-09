@@ -5,8 +5,12 @@ import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { useCartStore } from "@/stores/cart-store";
 import { CartItem } from "./cartitem";
+import { useState } from "react";
+import { CheckoutDialog } from "../checkout/dialog";
 
 export  function SidebarCart() {
+  const [checkoutOpen,setCheckoutOpen] = useState(false)
+
   const { cart } = useCartStore(state => state)
 
   let subtotal =  0;
@@ -28,6 +32,7 @@ export  function SidebarCart() {
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Carrinho</SheetTitle>
+        </SheetHeader>
           <div className="flex flex-col gap-5 my-3">
             {cart.map(item => (
               <CartItem key={item.product.id}  item={item}/>
@@ -48,10 +53,13 @@ export  function SidebarCart() {
 
           <Separator className="my-4" />
 
+          <CheckoutDialog 
+          open={checkoutOpen}
+          onOpenChange={setCheckoutOpen}
+        />    
           <div className="text-center">
-              <Button disabled={cart.length === 0}>Finalizar compra</Button>
+              <Button onClick={() => setCheckoutOpen(true)} disabled={cart.length === 0}>Finalizar compra</Button>
           </div>
-        </SheetHeader>
       </SheetContent>
     </Sheet>
   )

@@ -26,7 +26,7 @@ export const useCartStore = create<States & Actions>()(set => ({
         newCart.push({product: product, quantity: 0})
         productIndex = newCart.findIndex(item => item.product.id === product.id)
       }
-      newCart[productIndex].quantity =+ quantity;
+      newCart[productIndex].quantity += quantity;
 
       if(newCart[productIndex].quantity <= 0) {
         newCart = newCart.filter(item => item.product.id !== product.id)
