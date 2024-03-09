@@ -34,5 +34,4 @@ export const useCheckoutStore = create<States & Actions>()(set => ({
   ...initialState,
    setName:(name) => set(state => ({...state,name})),
    setAddress: (address) => set(state =>  ({...state, address}))
-
 }));
