@@ -1,7 +1,7 @@
+
 export function StepFinish() {
+  
   return(
-    <div>
-      
-    </div>
+    <div></div>
   )
 }

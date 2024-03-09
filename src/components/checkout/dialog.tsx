@@ -32,6 +32,7 @@ export function CheckoutDialog({onOpenChange,open}:CheckoutDialogProps) {
         <DialogHeader>
           <DialogTitle>
             <>
+
             {step === "user" && 'Dados Pessoais'}
             {step === "user" && 'Endereço de  entrega'}
             {step === "user" && 'Envio para o WhatsApp'}
